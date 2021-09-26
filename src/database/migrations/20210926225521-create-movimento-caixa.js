@@ -6,6 +6,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: false,
+        unique: true,
         references: {
           model:{
             tableName: 'ajuste'
