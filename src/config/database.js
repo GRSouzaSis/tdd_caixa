@@ -1,7 +1,7 @@
 module.exports = {
-  host: 'motty.db.elephantsql.com (motty-01)',
+  host: 'motty.db.elephantsql.com',
   username: 'bilbtxpl',
-  password: '',
+  password: 'qHTD-5UcFimi1Bl71o3fesVX1IBoiyRh',
   database: 'bilbtxpl',
   dialect: 'postgres',
   logging: false,
