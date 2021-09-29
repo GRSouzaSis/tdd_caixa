@@ -1,8 +1,12 @@
+const { Ajuste } = require("../../src/app/models")
 describe("Ajuste", () => {
-    it("soma", () => {
-        const x = 2;
-        const y = 4;
-        const sum = x + y;
-        expect(sum).toBe(6);
+    it("Saida de caixa", async () => {
+        const ajuste = await Ajuste.create({
+            valor: 100.00,
+            motivo: 'aberto',
+            tipo: 'saida'
+        })
+        console.log(ajuste)
+        expect(ajuste.motivo).toBe('aberto');
     });
 });
