@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     "Ajuste",
     {
       valor: DataTypes.DECIMAL,
-      data:DataTypes.Date(),
+      data:DataTypes.DATE,
       motivo: DataTypes.STRING,
       tipo: DataTypes.STRING
     }
