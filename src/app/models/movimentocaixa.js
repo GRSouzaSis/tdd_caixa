@@ -1,26 +1,28 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class MovimentoCaixa extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      this.belongsToMany(models.Caixa, { foreignKey: 'id', as: 'caixa' });
-      this.hasOne(models.Ajuste, { foreignKey: 'id', as: 'ajuste' });
+  const MovimentoCaixa = sequelize.define(
+    "MovimentoCaixa",
+    {
+      ajusteId: DataTypes.INTEGER,
+      caixaId: DataTypes.INTEGER
     }
-  };
-  MovimentoCaixa.init({
-    ajusteId: DataTypes.INTEGER,
-    caixaId: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'MovimentoCaixa',
-    freezeTableName: true
-  });
+    // {
+    //   hooks: {
+    //     beforeSave: async user => {
+    //       if (user.password) {
+    //         user.password_hash = await bcrypt.hash(user.password, 8);
+    //       }
+    //     }
+    //   }
+    // }
+  );
+
+  // User.prototype.checkPassword = function(password) {
+  //   return bcrypt.compare(password, this.password_hash);
+  // };
+
+  // User.prototype.generateToken = function() {
+  //   return jwt.sign({ id: this.id }, process.env.APP_SECRET);
+  // };
+
   return MovimentoCaixa;
 };

@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('movimento-caixa', {
+    await queryInterface.createTable('MovimentoCaixa', {
       ajusteId: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -31,17 +31,17 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete:'CASCADE'
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('movimento-caixa');
+    await queryInterface.dropTable('MovimentoCaixa');
   }
 };

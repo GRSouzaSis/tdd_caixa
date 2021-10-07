@@ -1,25 +1,12 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Ajuste extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+  const Ajuste = sequelize.define(
+    "Ajuste",
+    {
+      valor: DataTypes.DECIMAL,
+      data:DataTypes.Date(),
+      motivo: DataTypes.STRING,
+      tipo: DataTypes.STRING
     }
-  };
-  Ajuste.init({
-    valor: DataTypes.DECIMAL,
-    motivo: DataTypes.STRING,
-    tipo: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName:'Ajuste'
-  });
+  );
   return Ajuste;
 };

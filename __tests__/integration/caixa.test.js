@@ -9,14 +9,32 @@ describe("Ajuste de Caixa", () => {
     it("Iniciando Caixa", async () => {
         const caixa = await Caixa.create({
             saldo: 100.00,
-            status: 'aberto'
+            status: 'aberto',
+            created_at: Date.now(),
+            updated_at: Date.now()
         })
         const response = await request(app)
-            .post('/caixa')
+            .post('/Caixa')
             .send({
                 saldo: 100.00,
                 status: 'aberto'
             })
         expect(response.status).toBe(200);
     });
+    it("Abrir caixa com valor zerado", async () => {
+        const caixa = await Caixa.create({
+            saldo: 0.00,
+            status: 'aberto',
+            created_at: Date.now(),
+            updated_at: Date.now()
+        })
+        const response = await request(app)
+            .post('/Caixa')
+            .send({
+                saldo: 10.00,
+                status: 'aberto'
+            })
+        expect(response.status).toBe(200);
+    });
+    
 });
